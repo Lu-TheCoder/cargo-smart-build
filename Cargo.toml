@@ -2,6 +2,11 @@
 name = "cargo-smart-build"
 version = "0.1.0"
 edition = "2024"
+description = "A cargo subcommand to intelligently build only the changed crates in a workspace."
+license = "MIT"
+repository = "https://github.com/Lu-TheCoder/cargo-smart-build"
+keywords = ["cargo", "build", "workspace", "incremental", "cli"]
+categories = ["command-line-utilities", "development-tools::build-utils"]
 
 [dependencies]
 clap = { version = "4.5.58", features = ["derive"] }
