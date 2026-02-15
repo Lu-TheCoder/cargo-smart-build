@@ -90,6 +90,7 @@ dependencies = [
  "anyhow",
  "cargo_metadata",
  "clap",
+ "console",
  "dialoguer",
  "dirs",
  "serde",

@@ -9,13 +9,15 @@ mod package_selector;
 mod ui;
 
 fn main() -> Result<()> {
+    //~ Load last config
+    let last_config = config::load_config();
+
     let metadata = cargo_project::load_metadata()?;
-    let package = package_selector::select_package(&metadata)?;
+    let default_package = last_config.as_ref().map(|config| config.package.clone());
+    let package = package_selector::select_package(&metadata, default_package)?;
 
     let features = features::extract_features(package);
 
-    //~ Load last config
-    let last_config = config::load_config();
     //~ Use previous build choices as defaults if available
     let default_release = last_config.as_ref().map(|config| config.release);
     let default_features = last_config
