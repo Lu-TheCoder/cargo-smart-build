@@ -14,6 +14,10 @@ Simply run `cargo smart-build` once, select your package and features interactiv
 ## Features
 
 -   **Interactive Workspace Selection**: Automatically detects workspace members and lets you select the package to build from a list.
+-   **Execution Modes**:
+    -   `cargo smart-build` (or `build`): Builds the selected crate.
+    -   `cargo smart-build run`: Builds and runs the binary.
+    -   `cargo smart-build test`: Runs tests for the selected crate/features.
 -   **Smart Defaults**: Remembers your last selected package, build mode, and features. These are pre-selected (and highlighted in green) the next time you run the tool.
 -   **Build Mode Toggle**: Easily switch between **Debug** and **Release** builds without manual flags.
 -   **Feature Management**: 
@@ -33,18 +37,25 @@ cargo install cargo-smart-build
 ## Usage
 
 1.  Navigate to the root of your Cargo workspace.
-2.  Run the command:
+2.  Run one of the following commands:
 
     ```bash
-    cargo smart-build
+    # Build only
+    cargo smart-build 
+    
+    # Run binary
+    cargo smart-build run
+    
+    # Run tests
+    cargo smart-build test
     ```
 
 3.  Follow the interactive prompts:
-    -   **Select Package**: Choose the crate you want to build.
+    -   **Select Package**: Choose the crate you want to build/run/test.
     -   **Select Build Mode**: Choose `Debug` or `Release`.
     -   **Select Features**: Toggle features on/off (Space to select, Enter to confirm).
 
-4.  The tool will construct and run the appropriate `cargo build` command.
+4.  The tool will execute the appropriate cargo command (`build`, `run`, `test`).
 
 ## Configuration
 

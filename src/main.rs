@@ -1,4 +1,5 @@
 use anyhow::Result;
+use clap::{Parser, Subcommand};
 
 mod builder;
 mod cargo_project;
@@ -8,7 +9,34 @@ mod features;
 mod package_selector;
 mod ui;
 
+#[derive(Parser)]
+#[command(name = "cargo-smart-build")]
+#[command(bin_name = "cargo")]
+enum CargoCli {
+    SmartBuild(SmartBuildArgs),
+}
+
+#[derive(clap::Args)]
+#[command(version, about, long_about = None)]
+struct SmartBuildArgs {
+    #[command(subcommand)]
+    command: Option<Commands>,
+}
+
+#[derive(Subcommand, Clone, Copy, Debug, PartialEq)]
+pub enum Commands {
+    /// Build the selected package (default)
+    Build,
+    /// Run the selected package binary
+    Run,
+    /// Run tests for the selected package
+    Test,
+}
+
 fn main() -> Result<()> {
+    let CargoCli::SmartBuild(args) = CargoCli::parse();
+    let command = args.command.unwrap_or(Commands::Build);
+
     //~ Load last config
     let last_config = config::load_config();
 
@@ -28,13 +56,13 @@ fn main() -> Result<()> {
     let is_release = ui::select_build_mode(default_release)?;
     let selected_features = ui::select_features(&features, default_features)?;
 
-    builder::run_build(&package.name, is_release, &selected_features)?;
+    builder::execute_command(command, &package.name, is_release, &selected_features)?;
 
     //~ Save current selection
     let current_config = config::BuildConfig {
-    	package: package.name.to_string(),
-     	release: is_release,
-      	features: selected_features,
+        package: package.name.to_string(),
+        release: is_release,
+        features: selected_features,
     };
     config::save_config(&current_config);
 

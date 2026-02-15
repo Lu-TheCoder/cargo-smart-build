@@ -1,6 +1,6 @@
 [package]
 name = "cargo-smart-build"
-version = "0.1.1"
+version = "0.2.0"
 edition = "2024"
 description = "Interactive cargo subcommand to easily select, configure, and build workspace crates with remembered preferences."
 license = "MIT"
