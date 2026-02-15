@@ -2,7 +2,8 @@
 
 **Interactive cargo subcommand to easily select, configure, and build workspace crates with remembered preferences.**
 
-`cargo-smart-build` streamlines your workflow in multi-crate workspaces. Instead of typing long `cargo build -p <package> --features <...>` commands, simply run `cargo smart-build` and interactively select what you want to build. The tool remembers your choices, making subsequent builds instant.
+`cargo-smart-build` streamlines your workflow in multi-crate workspaces.
+Instead of typing long `cargo build -p <package> --features <...>` commands, simply run `cargo smart-build` and interactively select what you want to build. The tool remembers your choices, making subsequent builds instant.
 
 ## Features
 
