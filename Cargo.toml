@@ -1,0 +1,13 @@
+[package]
+name = "cargo-smart-build"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.58", features = ["derive"] }
+serde = { version="1.0.228", features = ["derive"] }
+cargo_metadata = "0.23.1"
+dialoguer = "0.12.0"
+anyhow = "1.0.101"
+serde_json = "1.0.149"
+dirs = "6.0.0"

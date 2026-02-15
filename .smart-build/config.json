@@ -1,0 +1,5 @@
+{
+  "package": "cargo-smart-build",
+  "release": true,
+  "features": []
+}
