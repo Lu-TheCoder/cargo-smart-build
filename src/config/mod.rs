@@ -6,6 +6,7 @@ use std::path::Path;
 pub struct BuildConfig {
 	pub package: String,
 	pub release: bool,
+    pub target: Option<String>,
 	pub features: Vec<String>,
 }
 

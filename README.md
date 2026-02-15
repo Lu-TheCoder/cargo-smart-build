@@ -18,7 +18,13 @@ Simply run `cargo smart-build` once, select your package and features interactiv
     -   `cargo smart-build` (or `build`): Builds the selected crate.
     -   `cargo smart-build run`: Builds and runs the binary.
     -   `cargo smart-build test`: Runs tests for the selected crate/features.
--   **Smart Defaults**: Remembers your last selected package, build mode, and features. These are pre-selected (and highlighted in green) the next time you run the tool.
+-   **Target Selector**: 
+    -   Auto-detects installed Rust targets via `rustup`.
+    -   Allows selecting a specific target architecture (e.g., `wasm32-unknown-unknown`) or using the default native target.
+    -   Supports installing new targets directly from the UI.
+    -   **Seamless Cross-Compilation**: Automatically switches to use [`cross`](https://github.com/cross-rs/cross) when a non-native target is selected (requires Docker).
+    -   **Auto-Install**: Prompts to install `cross` if it's missing.
+-   **Smart Defaults**: Remembers your last selected package, build mode, target, and features. These are pre-selected (and highlighted in green) the next time you run the tool.
 -   **Build Mode Toggle**: Easily switch between **Debug** and **Release** builds without manual flags.
 -   **Feature Management**: 
     -   Lists all available features for the selected package (excluding `default`).
