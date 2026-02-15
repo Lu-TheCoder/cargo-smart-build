@@ -2,7 +2,7 @@
 name = "cargo-smart-build"
 version = "0.1.0"
 edition = "2024"
-description = "A cargo subcommand to intelligently build only the changed crates in a workspace."
+description = "Interactive cargo subcommand to easily select, configure, and build workspace crates with remembered preferences."
 license = "MIT"
 repository = "https://github.com/Lu-TheCoder/cargo-smart-build"
 keywords = ["cargo", "build", "workspace", "incremental", "cli"]
