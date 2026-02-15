@@ -2,6 +2,9 @@
 
 **Interactive cargo subcommand to easily select, configure, and build workspace crates with remembered preferences.**
 
+![ezgif-64992ecde83193ff](https://github.com/user-attachments/assets/9a8a1761-3f44-4c82-badf-67f99fda50f2)
+
+
 ### The Problem
 Working in a multi-crate workspace often means typing repetitive, long commands: 
 `cargo build -p <package> --features <feature1,feature2> --release`
