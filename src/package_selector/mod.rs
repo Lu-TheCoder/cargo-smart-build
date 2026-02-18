@@ -3,7 +3,7 @@ use cargo_metadata::{Metadata, Package};
 use dialoguer::Select;
 use console::style;
 
-pub fn select_package<'a>(metadata: &'a Metadata, default_package: Option<String>) -> Result<&'a Package> {
+pub fn select_package(metadata: &Metadata, default_package: Option<String>) -> Result<&Package> {
     let workspace_members = &metadata.workspace_members;
 
     //~ Collect workspace packages
@@ -22,11 +22,11 @@ pub fn select_package<'a>(metadata: &'a Metadata, default_package: Option<String
         .iter()
         .map(|package| {
             let name = package.name.as_str();
-            if let Some(default) = &default_package {
-                if name == default {
+            if let Some(default) = &default_package
+                && name == default {
                     return format!("{}", style(name).green().bold());
                 }
-            }
+
             name.to_string()
         })
         .collect();

@@ -3,7 +3,7 @@ use dialoguer::{MultiSelect, Select};
 use console::style;
 
 pub fn select_build_mode(default_release: Option<bool>) -> Result<bool> {
-    let modes = vec!["Debug", "Release"];
+    let modes = ["Debug", "Release"];
     let display_modes: Vec<String> = modes
         .iter()
         .map(|&mode| {

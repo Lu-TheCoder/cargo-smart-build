@@ -32,18 +32,18 @@ pub fn get_installed_targets() -> Result<Vec<String>> {
 /// Returns `None` for "Default (Native)", or `Some("target-triple")`.
 pub fn select_target(default_target: Option<String>) -> Result<Option<String>> {
     let targets = get_installed_targets()?;
-    
+
     // UI Options
     let mut options = vec![format!("{}", style("Default (Native)").bold())];
-    
+
     // Add installed targets
     for target in &targets {
-        if let Some(def) = &default_target {
-            if def == target {
+        if let Some(def) = &default_target
+            && def == target {
                  options.push(format!("{}", style(target).green().bold()));
                  continue;
             }
-        }
+
         options.push(target.clone());
     }
 
@@ -53,7 +53,7 @@ pub fn select_target(default_target: Option<String>) -> Result<Option<String>> {
     let default_index = if let Some(def) = &default_target {
         // +1 because "Default (Native)" is at index 0
         if let Some(pos) = targets.iter().position(|t| t == def) {
-            pos + 1 
+            pos + 1
         } else {
             0
         }
@@ -90,7 +90,7 @@ pub fn select_target(default_target: Option<String>) -> Result<Option<String>> {
             println!("{}", style("Failed to install target.").red());
             return Ok(None); // Fallback to native on failure
         }
-        
+
         return Ok(Some(new_target));
     }
 
