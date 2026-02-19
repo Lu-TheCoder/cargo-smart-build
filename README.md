@@ -2,6 +2,8 @@
 
 **Interactive cargo subcommand to easily select, configure, and build workspace crates with remembered preferences.**
 
+> **Note**: This tool is still under development with new features still underway.
+
 ![ezgif-64992ecde83193ff](https://github.com/user-attachments/assets/9a8a1761-3f44-4c82-badf-67f99fda50f2)
 
 
